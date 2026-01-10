@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
 	try {
-		const { name, username, email, password, picture } = req.body;
+		const { name, username, email, password } = req.body;
 
 		if (!name.trim() || !username.trim() || !email.trim() || !password.trim()) {
 			return res.status(400).json({ message: "All fields are required" });
@@ -19,12 +19,16 @@ export const register = async (req, res) => {
 
 		const hashedPassword = await bcrypt.hash(password, 10);
 
+		let pictureUrl = "";
+		if (req.file) {
+			pictureUrl = `/uploads/${req.file.filename}`;
+		}
 		const user = new User({
 			name,
 			username: req.body.username.toLowerCase(),
 			email: req.body.email.toLowerCase(),
 			password: hashedPassword,
-			picture,
+			avatar: pictureUrl,
 		});
 
 		await user.save();

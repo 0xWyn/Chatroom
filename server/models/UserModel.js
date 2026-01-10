@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema(
 			type: Date,
 			default: null,
 		},
-		picture: {
+		avatar: {
 			type: String,
 			default: null,
 		},
