@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* 1. Ensure the container fills the browser */
+html,
+body,
+#root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents the 'double scrollbar' glitch */
+}
+
+/* 2. Modern Font stack */
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-color: #f3f4f6; /* Default gray-100 */
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #94a0b7;
+    border-radius: 4px;
+}
+/* 3. Reset buttons so Tailwind classes work properly */
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button {
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-weight: 500;
+    font-family: inherit;
+    transition: border-color 0.25s;
+    cursor: pointer;
+}
+
+/* 4. Ensure images don't break layouts */
+img,
+video {
+    max-width: 100%;
+    display: block;
+}
